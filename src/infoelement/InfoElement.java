@@ -6,11 +6,11 @@ import java.lang.reflect.Method;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class InfoElement implements Cloneable {
+public class InfoElement  {
 
     private Element e;
 
-    public InfoElement(int num, String cad) {
+    public InfoElement(Element e) {
         this.e = e;
     }
 
@@ -96,17 +96,10 @@ public class InfoElement implements Cloneable {
         }
     }
     
-    public Element crearInstancia( Element e){
+    public void crearInstancia(int numero, String cosa){
         
-        e = null;
-        try {
-            e =  e.getClass().newInstance();
-            
-        } catch (InstantiationException | IllegalAccessException ex) {
-            Logger.getLogger(InfoElement.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Element element = new Element(numero, cosa);
         
-        return e;
     }
     
     public Element clon() throws CloneNotSupportedException{
